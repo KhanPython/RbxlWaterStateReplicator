@@ -81,27 +81,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-13.3432026</X>
-					<Y>40.4482193</Y>
-					<Z>-107.193909</Z>
-					<R00>-0.991835594</R00>
-					<R01>-0.0875128359</R01>
-					<R02>0.0927563012</R02>
+					<X>-54.7533302</X>
+					<Y>24.2913895</Y>
+					<Z>-65.5989304</Z>
+					<R00>0.088531509</R00>
+					<R01>0.520451546</R01>
+					<R02>-0.849289417</R02>
 					<R10>-0</R10>
-					<R11>0.727366745</R11>
-					<R12>0.686249018</R12>
-					<R20>-0.127523437</R20>
-					<R21>0.680646181</R21>
-					<R22>-0.721428156</R22>
+					<R11>0.85263741</R11>
+					<R12>0.522503197</R12>
+					<R20>0.996073425</R20>
+					<R21>-0.0462579951</R21>
+					<R22>0.0754852742</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-13.5287151</X>
-					<Y>39.0757217</Y>
-					<Z>-105.751053</Z>
+					<X>-53.0547523</X>
+					<Y>23.2463837</Y>
+					<Z>-65.7499008</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -239,7 +239,7 @@
 		</Item>
 		<Item class="Terrain" referent="RBXFDB66EE36FCF4149A19A1A11D4EE8F2E">
 			<Properties>
-				<token name="AcquisitionMethod">0</token>
+				<token name="AcquisitionMethod">6</token>
 				<bool name="Anchored">true</bool>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<float name="BackParamA">-0.5</float>
@@ -289,7 +289,11 @@
 gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<string name="MaterialVariantSerialized"></string>
 				<string name="Name">Terrain</string>
-				<BinaryString name="PhysicsGrid">AgMAAAAAAAAAAAAAAAA=</BinaryString>
+				<BinaryString name="PhysicsGrid"><![CDATA[AgMAAAAS/////////////v/7AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAD/AAD/AAD/AAH+
+AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAD/AAD/AAD/AAH+AAAAAAAAAAAAAAABAAAAAAAA
+AAAAAAABAP//AP//AP//Af7+AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAD/AAD/AAD/AAH+
+AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAD/AAD/AAD/AAH+AAAAAAAAAAAAAAABAAAAAAAA
+AAAAAAABAAAAAAAAAAA=]]></BinaryString>
 				<CoordinateFrame name="PivotOffset">
 					<X>0</X>
 					<Y>0</Y>
@@ -315,7 +319,46 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<Y>0</Y>
 					<Z>0</Z>
 				</Vector3>
-				<BinaryString name="SmoothGrid">AQU=</BinaryString>
+				<BinaryString name="SmoothGrid"><![CDATA[AQX///////////////6A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gPdBKUF5QXhBKID/gP+A/4Db
+QSHBcAFBIIAaQSpB04EBQdNBKYD/gP+A/4DaQXHByQFBcIAaQXuBA0F6gAIAAAAAAAAAAAAA
+AAGA/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gBdBgsHdAUGCgBtBjMHoAUGMgBtBQ8GWAUFDgBxBBYAdQXBB
+nkF3QQWAGkE8Qb9B80HHQUqAGkE1QbdB6kG/QUOAG0FZQYZBYID/gP+A/4AbQYSBA0GDgBlB
+joEDQY2AGUFEQfWBAUH1QUSAGkF4QahBoUFNgBpBmIECQaeAGUEUQeyBAkH9QSeAGEENQeOB
+AkH0QSCAGUGAgQJBj4AbQVJBf0FZgP+A/4D7QeCBA0HfgBlB64EDQeqAGUGZgQNBmIAZQU1B
+04EBQaJBAoAYQRxB9oEDQS+AGEFjgQRBeIAYQVuBBEFxgBhBB0HbgQJB7EEagBlBKUGoQdtB
+sEE2gP+A/4DjAAD/AAD/AAD/AAH/gP+A/4D/gNdBcsHKAUFxgBpBfIEDQXuA/4D/gP+A2kEj
+QXNBckEjgBpBLEHWgQFB1kErgP+A/4D/gPpBLcF9AUEsgP+A/4D/gPpBLkEfgP+A/4D/gPxB
+c0GrQZpBPYD/gP+A/4D6QR9Bn0HbQclBZoD/gP+A/4D7QXVBrUGcQT+A/4D/gP+A/EExQSOA
+/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A
+/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A
+/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A
+/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+ABgAAAAAAAAAAAAAAAYAWQeGBA0HggBlB
+7IEDQeuAGUGagQNBmYAYQQZBxYECQfZBRYAYQRxB+IEDQTCAGEFkgQRBeYAYQVyBBEFygBhB
+CEHcgQJB7UEbgBlBKkGpQdxBsUE3gP+A/4D6QYaBA0GGgBlBt4EDQZCAGEFFgQRBuoAYQX2B
+BEHGgBhBhoEEQXyAGEFWgQRBKoAYQQ9B5oECQfhBI4AZQYOBAkGSgBtBVUGCQVyA/4D/gPtB
+PkHLAUHyQYeAGUFCQeiBA0GJgBdBI0FugQRB64AXQT5BqoEEQfiAF0EwQbOBBEGpgBhBgIEE
+QSGAGEEFQcKBAkF7gBtBXkGLQWWA/4D/gP+AGUE0QaxB5EHSQdpBwkFcgBdBCUGrgQVBYIAW
+QVhB/oEFQbyAFkF/gQZByIAWQWyBBkF+gBZBGUG1gQRB3YAYQSRBiUG1gQFB6kFTgBtBLkFG
+QRCA/4D/gP+AGUGygQNBWIAYQYCBBEHwQYyAF0HdgQVB70E+gBVBHoEGQftBSIAVQQtB9oEF
+Qa5BCYAWQZOBBUFsgBdBAUGfgQNBvoAaQTxBaUGRQXFBBoD/gP+A/4AYQSBB4oEDQYOAGEGt
+gQVBN4AWQRyBBkGYgBZBRYEGQdSAFkEygQZB3oAXQcGBBUGXgBdBJ0HOgQNB70EjgBlBZUGU
+Qb9BnUEsgP+A/4D/gBlBtIEDQVqAGEGCgQRB7UESgBdB34EFQW6AFkEggQZBp4AWQQ1B+IEF
+QbGAF0GVgQVBboAXQQNBooEDQcCAGkE9QWtBk0FzQQiA/4D/gP+AGUE3QbBB6UHXQX6AGUEM
+QbCBAkH1QWeAGEFbgQRBtoAYQYKBBEHjQSyAF0FwgQRB60E0gBdBHEG6gQNBqoAZQSdBjUG5
+QdlBtkFBgBxBG4D/gP+A/4AdQRVBCIAcQUdBb0FjQR+AGkEpQXRBgEGBQVKAGkFEQYBBcUGC
+QW1BEYAZQTVBd0GCQYFBb0EXgBpBPkFdQWpBTIAdQQmA/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/gP+A/4D/
+gP+A/4D/gCY=]]></BinaryString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 				<float name="TopParamA">-0.5</float>
@@ -462,7 +505,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<token name="BottomSurfaceInput">0</token>
 					<CoordinateFrame name="CFrame">
 						<X>16.625</X>
-						<Y>18.75</Y>
+						<Y>34</Y>
 						<Z>4.625</Z>
 						<R00>1</R00>
 						<R01>0</R01>
@@ -538,7 +581,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<token name="shape">1</token>
 					<Vector3 name="size">
 						<X>107.75</X>
-						<Y>37.5</Y>
+						<Y>68</Y>
 						<Z>116.25</Z>
 					</Vector3>
 				</Properties>
@@ -804,22 +847,22 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<BinaryString name="Tags"></BinaryString>
 				<UniqueId name="UniqueId">1b6f446612b3e82602bff7d600031050</UniqueId>
 			</Properties>
-			<Item class="LocalScript" referent="RBX3799C31126BC4329A9128C66C1CF5750">
+			<Item class="LocalScript" referent="RBXB2794058D4F4427199D5F5F7293EF7B9">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
 					<string name="Name">SwimHandler</string>
-					<string name="ScriptGuid">{2E5905D0-97D9-41E3-8039-8216BBCD3D0C}</string>
-					<ProtectedString name="Source"><![CDATA[--//Services
+					<string name="ScriptGuid">{85175014-992E-4BCB-9298-03CCEDC91F4C}</string>
+					<ProtectedString name="Source"><![CDATA[-- Services
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 
---//Dependencies
+-- Dependencies
 local BasicState = require(script:WaitForChild("BasicState"))
 local Settings = require(script:WaitForChild("Settings"))
 
---//Player-related
+-- Player-related
 local Player = Players.LocalPlayer
 local Character = Player.Character
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
@@ -828,7 +871,7 @@ local Root = Character:FindFirstChild("HumanoidRootPart")
 local waterFolder = Settings["WATER_FOLDER"]  
 local waterList = waterFolder:GetChildren()
 
---//States
+-- States
 local swimState = BasicState.new({
 	isSwimming = false;
 	swimVelocity = nil
@@ -853,9 +896,9 @@ RunService.Heartbeat:Connect(function()
 	local isSwimming = checkIfInWater()
 	swimState:Set("isSwimming", isSwimming)
 	
-	--//Set swimming motion
+	-- Set swimming motion
 	if isSwimming then
-		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1
+		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1  
 	end
 end)
 
@@ -864,11 +907,13 @@ swimState:GetChangedSignal("isSwimming"):Connect(function(newState, _oldState)
 	local swimVelocityState = swimState:Get("swimVelocity")
 	
 	if not newState then
+		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
 		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, true)
 		if swimVelocityState ~= nil then
 			swimVelocityState:Destroy()
 		end
 	else 
+		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, false)
 		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, false)
 		Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
 		swimVelocityState = Instance.new("BodyVelocity")
@@ -878,8 +923,7 @@ swimState:GetChangedSignal("isSwimming"):Connect(function(newState, _oldState)
 end)
 
 
-Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, Settings["ALLOW_JUMPING"])
-Humanoid.StateChanged:Connect(function(oldState, newState)
+Humanoid.StateChanged:Connect(function(_oldState, newState)
 	if newState == Enum.HumanoidStateType.Jumping then
 		if swimState:Get("isSwimming") then
 			Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, false)
@@ -887,17 +931,23 @@ Humanoid.StateChanged:Connect(function(oldState, newState)
 		end
 	end
 end)
-]]></ProtectedString>
+
+
+Humanoid:GetPropertyChangedSignal("Jump"):Connect(function()
+	if swimState:Get("isSwimming") then
+    	swimState:Get("swimVelocity").Velocity += Vector3.new(0, 2 * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
+	end
+end)]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
-					<UniqueId name="UniqueId">1b6f446612b3e82602bff7d60003ece2</UniqueId>
+					<UniqueId name="UniqueId">1b6f446612b3e82602bff7d600669976</UniqueId>
 				</Properties>
-				<Item class="ModuleScript" referent="RBXE14696548EEE45D683E789103094FF4F">
+				<Item class="ModuleScript" referent="RBX391DCA5CBA9A46D2B36A7D841063E1A5">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">BasicState</string>
-						<string name="ScriptGuid">{7EC42957-7F6D-4C44-8DAF-AAD0FD12D4D1}</string>
+						<string name="ScriptGuid">{7C65F233-DB32-4AA3-91B4-08484DA22181}</string>
 						<ProtectedString name="Source"><![CDATA[local State = {}
 
 State.None = newproxy(true)
@@ -1193,21 +1243,20 @@ end
 
 return State
 ]]></ProtectedString>
-						<int64 name="SourceAssetId">5023525481</int64>
+						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
-						<UniqueId name="UniqueId">1b6f446612b3e82602bff7d60003f2eb</UniqueId>
+						<UniqueId name="UniqueId">1b6f446612b3e82602bff7d600669977</UniqueId>
 					</Properties>
 				</Item>
-				<Item class="ModuleScript" referent="RBX6AE024DD52C1460BBD9A28E30D35C595">
+				<Item class="ModuleScript" referent="RBX893B60FF452442A1920176AE04AB3DAB">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">Settings</string>
-						<string name="ScriptGuid">{FB4D21CC-0A6A-4E16-9321-38FBE29CBF12}</string>
+						<string name="ScriptGuid">{E9799493-408D-407F-9849-62BC5DFF841D}</string>
 						<ProtectedString name="Source"><![CDATA[local settingsMod = {
 	
 	WATER_FOLDER = workspace:FindFirstChild("BOW");
-	ALLOW_JUMPING = true;
 	WATER_DRAG_FORCE_MULTIPLIER = 1;
 
 }
@@ -1216,7 +1265,7 @@ return settingsMod
 ]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
-						<UniqueId name="UniqueId">1b6f446612b3e82602bff7d60050d92c</UniqueId>
+						<UniqueId name="UniqueId">1b6f446612b3e82602bff7d600669978</UniqueId>
 					</Properties>
 				</Item>
 			</Item>

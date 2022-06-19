@@ -42,7 +42,7 @@ RunService.Heartbeat:Connect(function()
 	
 	-- Set swimming motion
 	if isSwimming then
-		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1
+		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1  
 	end
 end)
 
@@ -51,13 +51,13 @@ swimState:GetChangedSignal("isSwimming"):Connect(function(newState, _oldState)
 	local swimVelocityState = swimState:Get("swimVelocity")
 	
 	if not newState then
-		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, true)
 		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
+		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, true)
 		if swimVelocityState ~= nil then
 			swimVelocityState:Destroy()
 		end
 	else 
-		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, Settings["ALLOW_JUMPING"])
+		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, false)
 		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, false)
 		Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
 		swimVelocityState = Instance.new("BodyVelocity")
@@ -73,5 +73,12 @@ Humanoid.StateChanged:Connect(function(_oldState, newState)
 			Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, false)
 			Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
 		end
+	end
+end)
+
+
+Humanoid:GetPropertyChangedSignal("Jump"):Connect(function()
+	if swimState:Get("isSwimming") then
+    	swimState:Get("swimVelocity").Velocity += Vector3.new(0, 2 * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
 	end
 end)

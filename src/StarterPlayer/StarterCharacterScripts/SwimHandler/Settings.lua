@@ -1,7 +1,9 @@
 local settingsMod = {
 	
-	WATER_FOLDER = workspace:FindFirstChild("BOW");
-	WATER_DRAG_FORCE_MULTIPLIER = 1;
+	WATER_FOLDER = workspace:FindFirstChild("BOW"); -- Directory to your folder with water baseParts
+	WATER_DRAG_FORCE_MULTIPLIER = 1; -- Additional force multiplier to drag/push the player when in water
+	WATER_JUMP_FORCE = .5; -- The force factor applied to the player when they attempt to jump in water 
+	PLAYER_FLOAT_FACTOR = 0 -- Anything over n>0 will make the player float up, and vice versa with n<0
 
 }
 

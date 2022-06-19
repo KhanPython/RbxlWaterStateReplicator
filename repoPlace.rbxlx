@@ -81,27 +81,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-51.406002</X>
-					<Y>36.8445282</Y>
-					<Z>-49.1255112</Z>
-					<R00>0.144017339</R00>
-					<R01>0.745709181</R01>
-					<R02>-0.650520504</R02>
-					<R10>-0</R10>
-					<R11>0.657373488</R11>
-					<R12>0.753565013</R12>
-					<R20>0.989575148</R20>
-					<R21>-0.108526431</R21>
-					<R22>0.0946731791</R22>
+					<X>-1.39186168</X>
+					<Y>91.8096619</Y>
+					<Z>-144.401947</Z>
+					<R00>-0.69619292</R00>
+					<R01>0.445885211</R01>
+					<R02>-0.562584996</R02>
+					<R10>-1.49011612e-08</R10>
+					<R11>0.783703089</R11>
+					<R12>0.621135712</R12>
+					<R20>0.717854738</R20>
+					<R21>0.432430297</R21>
+					<R22>-0.545608521</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-50.1049614</X>
-					<Y>35.3373985</Y>
-					<Z>-49.3148575</Z>
+					<X>-0.266691685</X>
+					<Y>90.5673904</Y>
+					<Z>-143.31073</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -391,7 +391,7 @@ gP+A/4D/gCY=]]></BinaryString>
 		<Item class="Folder" referent="RBX5670BDE7186640DAB9BE05C96F4F30CD">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">BOW</string>
+				<string name="Name">SwimParts</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 				<UniqueId name="UniqueId">1b6f446612b3e82602bff7d60003f308</UniqueId>
@@ -409,9 +409,9 @@ gP+A/4D/gCY=]]></BinaryString>
 					<token name="BottomSurface">0</token>
 					<token name="BottomSurfaceInput">0</token>
 					<CoordinateFrame name="CFrame">
-						<X>64.875</X>
+						<X>101.375</X>
 						<Y>18.75</Y>
-						<Z>-89.125</Z>
+						<Z>-117.125</Z>
 						<R00>1</R00>
 						<R01>0</R01>
 						<R02>0</R02>
@@ -470,7 +470,7 @@ gP+A/4D/gCY=]]></BinaryString>
 						<Z>0</Z>
 					</Vector3>
 					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
+					<BinaryString name="Tags">U3dpbUJhc2VQYXJ0</BinaryString>
 					<float name="TopParamA">-0.5</float>
 					<float name="TopParamB">0.5</float>
 					<token name="TopSurface">0</token>
@@ -504,9 +504,9 @@ gP+A/4D/gCY=]]></BinaryString>
 					<token name="BottomSurface">0</token>
 					<token name="BottomSurfaceInput">0</token>
 					<CoordinateFrame name="CFrame">
-						<X>16.625</X>
+						<X>53.875</X>
 						<Y>34</Y>
-						<Z>4.625</Z>
+						<Z>-15.875</Z>
 						<R00>1</R00>
 						<R01>0</R01>
 						<R02>0</R02>
@@ -565,7 +565,7 @@ gP+A/4D/gCY=]]></BinaryString>
 						<Z>0</Z>
 					</Vector3>
 					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
+					<BinaryString name="Tags">U3dpbUJhc2VQYXJ0</BinaryString>
 					<float name="TopParamA">-0.5</float>
 					<float name="TopParamB">0.5</float>
 					<token name="TopSurface">0</token>
@@ -856,12 +856,13 @@ gP+A/4D/gCY=]]></BinaryString>
 					<string name="ScriptGuid">{85175014-992E-4BCB-9298-03CCEDC91F4C}</string>
 					<ProtectedString name="Source"><![CDATA[--[[** 
 	Note: 
-	This is not a 1:1 replica of the terrain's swim behavior. Most of the formula's used here are arbitrary and require additional research
+	This is not a 1:1 replica of the terrain's swim behavior. Most of the formula's used here are arbitrary and require additional research. 
 ]]
 
 -- Services
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+local CollectionService = game:GetService("CollectionService")
 
 -- Dependencies
 local BasicState = require(script:WaitForChild("BasicState"))
@@ -873,8 +874,7 @@ local Character = Player.Character
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
 local Root = Character:FindFirstChild("HumanoidRootPart")
 
-local waterFolder = Settings["WATER_FOLDER"]  
-local waterList = waterFolder:GetChildren()
+local swimTag = Settings["SWIM_TAG"]  
 
 -- States
 local swimState = BasicState.new({
@@ -887,7 +887,7 @@ local swimState = BasicState.new({
 function checkIfInWater(): boolean	
 	local list = workspace:GetPartsInPart(Root)
 	for _, touchingPart in pairs(list) do
-		if not table.find(waterList, touchingPart) then
+		if not table.find(CollectionService:GetTagged(swimTag), touchingPart) then
 			continue
 		end
 		return true
@@ -1261,7 +1261,7 @@ return State
 						<string name="ScriptGuid">{E9799493-408D-407F-9849-62BC5DFF841D}</string>
 						<ProtectedString name="Source"><![CDATA[local settingsMod = {
 	
-	WATER_FOLDER = workspace:FindFirstChild("BOW"); -- Directory to your folder with water baseParts
+	SWIM_TAG = "SwimBasePart"; -- Name of the CollectionService tag for the swimmable baseparts
 	WATER_DRAG_FORCE_MULTIPLIER = 1; -- Additional force multiplier to drag/push the player when in water
 	WATER_JUMP_FORCE = .5; -- The force factor applied to the player when they attempt to jump in water 
 	PLAYER_FLOAT_FACTOR = 0 -- Anything over n>0 will make the player float up, and vice versa with n<0
@@ -1476,6 +1476,35 @@ return settingsMod
 			<BinaryString name="Tags"></BinaryString>
 			<UniqueId name="UniqueId">1b6f446612b3e82602bff7d600030efc</UniqueId>
 		</Properties>
+		<Item class="Folder" referent="RBX9B525B54515448729C822A95EE93F741">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">Archimedes_Storage</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<UniqueId name="UniqueId">6ad5bf899fc4102602c036a10002dd68</UniqueId>
+			</Properties>
+		</Item>
+		<Item class="Folder" referent="RBX9A4AF2D3956047BE81DDDE0ACF83EA24">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">TagList</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags">VGFnRWRpdG9yVGFnQ29udGFpbmVy</BinaryString>
+				<UniqueId name="UniqueId">6ad5bf899fc4102602c036a10002f234</UniqueId>
+			</Properties>
+			<Item class="Configuration" referent="RBXDD3B40AFA116489EAA3984E3C7A885A9">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD2IAuzslloI+hOpQPwgAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAZmxhZ19ibHVlBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">SwimBasePart</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<UniqueId name="UniqueId">6ad5bf899fc4102602c036a10002f235</UniqueId>
+				</Properties>
+			</Item>
+		</Item>
 	</Item>
 	<Item class="ReplicatedStorage" referent="RBX689243F3975E4037B37C37DFB69912E4">
 		<Properties>

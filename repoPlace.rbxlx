@@ -81,27 +81,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-54.7533302</X>
-					<Y>24.2913895</Y>
-					<Z>-65.5989304</Z>
-					<R00>0.088531509</R00>
-					<R01>0.520451546</R01>
-					<R02>-0.849289417</R02>
+					<X>-51.406002</X>
+					<Y>36.8445282</Y>
+					<Z>-49.1255112</Z>
+					<R00>0.144017339</R00>
+					<R01>0.745709181</R01>
+					<R02>-0.650520504</R02>
 					<R10>-0</R10>
-					<R11>0.85263741</R11>
-					<R12>0.522503197</R12>
-					<R20>0.996073425</R20>
-					<R21>-0.0462579951</R21>
-					<R22>0.0754852742</R22>
+					<R11>0.657373488</R11>
+					<R12>0.753565013</R12>
+					<R20>0.989575148</R20>
+					<R21>-0.108526431</R21>
+					<R22>0.0946731791</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-53.0547523</X>
-					<Y>23.2463837</Y>
-					<Z>-65.7499008</Z>
+					<X>-50.1049614</X>
+					<Y>35.3373985</Y>
+					<Z>-49.3148575</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -854,7 +854,12 @@ gP+A/4D/gCY=]]></BinaryString>
 					<Content name="LinkedSource"><null></null></Content>
 					<string name="Name">SwimHandler</string>
 					<string name="ScriptGuid">{85175014-992E-4BCB-9298-03CCEDC91F4C}</string>
-					<ProtectedString name="Source"><![CDATA[-- Services
+					<ProtectedString name="Source"><![CDATA[--[[** 
+	Note: 
+	This is not a 1:1 replica of the terrain's swim behavior. Most of the formula's used here are arbitrary and require additional research
+]]
+
+-- Services
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
 
@@ -898,7 +903,7 @@ RunService.Heartbeat:Connect(function()
 	
 	-- Set swimming motion
 	if isSwimming then
-		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1  
+		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 + Vector3.new(0, Settings["PLAYER_FLOAT_FACTOR"] * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
 	end
 end)
 
@@ -935,7 +940,7 @@ end)
 
 Humanoid:GetPropertyChangedSignal("Jump"):Connect(function()
 	if swimState:Get("isSwimming") then
-    	swimState:Get("swimVelocity").Velocity += Vector3.new(0, 2 * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
+    	swimState:Get("swimVelocity").Velocity += Vector3.new(0, Settings["WATER_JUMP_FORCE"] * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
 	end
 end)]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
@@ -1256,8 +1261,10 @@ return State
 						<string name="ScriptGuid">{E9799493-408D-407F-9849-62BC5DFF841D}</string>
 						<ProtectedString name="Source"><![CDATA[local settingsMod = {
 	
-	WATER_FOLDER = workspace:FindFirstChild("BOW");
-	WATER_DRAG_FORCE_MULTIPLIER = 1;
+	WATER_FOLDER = workspace:FindFirstChild("BOW"); -- Directory to your folder with water baseParts
+	WATER_DRAG_FORCE_MULTIPLIER = 1; -- Additional force multiplier to drag/push the player when in water
+	WATER_JUMP_FORCE = .5; -- The force factor applied to the player when they attempt to jump in water 
+	PLAYER_FLOAT_FACTOR = 0 -- Anything over n>0 will make the player float up, and vice versa with n<0
 
 }
 

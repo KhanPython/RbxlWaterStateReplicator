@@ -52,10 +52,12 @@ swimState:GetChangedSignal("isSwimming"):Connect(function(newState, _oldState)
 	
 	if not newState then
 		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, true)
+		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
 		if swimVelocityState ~= nil then
 			swimVelocityState:Destroy()
 		end
 	else 
+		Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, Settings["ALLOW_JUMPING"])
 		Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, false)
 		Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
 		swimVelocityState = Instance.new("BodyVelocity")
@@ -65,8 +67,7 @@ swimState:GetChangedSignal("isSwimming"):Connect(function(newState, _oldState)
 end)
 
 
-Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, Settings["ALLOW_JUMPING"])
-Humanoid.StateChanged:Connect(function(oldState, newState)
+Humanoid.StateChanged:Connect(function(_oldState, newState)
 	if newState == Enum.HumanoidStateType.Jumping then
 		if swimState:Get("isSwimming") then
 			Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp, false)

@@ -1,3 +1,8 @@
+--[[** 
+	Note: 
+	This is not a 1:1 replica of the terrain's swim behavior. Most of the formula's used here are arbitrary and require additional research
+]]
+
 -- Services
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
@@ -42,7 +47,7 @@ RunService.Heartbeat:Connect(function()
 	
 	-- Set swimming motion
 	if isSwimming then
-		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1  
+		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 + Vector3.new(0, Settings["PLAYER_FLOAT_FACTOR"] * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
 	end
 end)
 
@@ -79,6 +84,6 @@ end)
 
 Humanoid:GetPropertyChangedSignal("Jump"):Connect(function()
 	if swimState:Get("isSwimming") then
-    	swimState:Get("swimVelocity").Velocity += Vector3.new(0, 2 * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
+    	swimState:Get("swimVelocity").Velocity += Vector3.new(0, Settings["WATER_JUMP_FORCE"] * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
 	end
 end)

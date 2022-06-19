@@ -1,11 +1,12 @@
 --[[** 
 	Note: 
-	This is not a 1:1 replica of the terrain's swim behavior. Most of the formula's used here are arbitrary and require additional research
+	This is not a 1:1 replica of the terrain's swim behavior. Most of the formula's used here are arbitrary and require additional research. 
 ]]
 
 -- Services
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+local CollectionService = game:GetService("CollectionService")
 
 -- Dependencies
 local BasicState = require(script:WaitForChild("BasicState"))
@@ -17,8 +18,7 @@ local Character = Player.Character
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
 local Root = Character:FindFirstChild("HumanoidRootPart")
 
-local waterFolder = Settings["WATER_FOLDER"]  
-local waterList = waterFolder:GetChildren()
+local swimTag = Settings["SWIM_TAG"]  
 
 -- States
 local swimState = BasicState.new({
@@ -31,7 +31,7 @@ local swimState = BasicState.new({
 function checkIfInWater(): boolean	
 	local list = workspace:GetPartsInPart(Root)
 	for _, touchingPart in pairs(list) do
-		if not table.find(waterList, touchingPart) then
+		if not table.find(CollectionService:GetTagged(swimTag), touchingPart) then
 			continue
 		end
 		return true

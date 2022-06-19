@@ -42,10 +42,24 @@ end
 RunService.Heartbeat:Connect(function()
 	local isSwimming = checkIfInWater()
 	swimState:Set("isSwimming", isSwimming)
-	
-	-- Set swimming motion
-	if isSwimming then
-		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 + Vector3.new(0, Settings["PLAYER_FLOAT_FACTOR"] * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
+	local floatY = Settings["PLAYER_FLOAT_FACTOR"] * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 
+
+	if isSwimming then	
+		-- Account for the surface above/below the player (to prevent surface glitching)
+		if Settings["ENABLE_FLOAT_GLITCHING"] then
+			local rayOrigin     = Root.CFrame.p
+			local rayDirection  = Vector3.new(0, math.sign(Settings["PLAYER_FLOAT_FACTOR"]) * Character:GetExtentsSize().Y/1.5, 0)
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterDescendantsInstances = {Character}
+			raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+			local raycastResult      = workspace:Raycast(rayOrigin, rayDirection, raycastParams)
+
+			if raycastResult and raycastResult.Instance then
+				floatY = 0
+			end
+		end
+			-- Set swimming motion
+		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 + Vector3.new(0, floatY, 0)
 	end
 end)
 

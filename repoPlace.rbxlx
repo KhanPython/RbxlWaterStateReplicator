@@ -81,27 +81,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>46.1873283</X>
-					<Y>56.1523361</Y>
-					<Z>-144.815933</Z>
-					<R00>-0.996672273</R00>
-					<R01>0.051961638</R01>
-					<R02>-0.0628051311</R02>
-					<R10>3.7252903e-09</R10>
-					<R11>0.770484984</R11>
-					<R12>0.637458324</R12>
-					<R20>0.0815137774</R20>
-					<R21>0.635337055</R21>
-					<R22>-0.767920911</R22>
+					<X>40.4106178</X>
+					<Y>39.7446404</Y>
+					<Z>-148.920319</Z>
+					<R00>-0.990571678</R00>
+					<R01>0.0958538353</R01>
+					<R02>-0.0978775173</R02>
+					<R10>-0</R10>
+					<R11>0.714454174</R11>
+					<R12>0.699682295</R12>
+					<R20>0.136996225</R20>
+					<R21>0.693085492</R21>
+					<R22>-0.707717955</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>46.3129387</X>
-					<Y>54.8774185</Y>
-					<Z>-143.28009</Z>
+					<X>40.6063728</X>
+					<Y>38.3452759</Y>
+					<Z>-147.504883</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -898,10 +898,24 @@ end
 RunService.Heartbeat:Connect(function()
 	local isSwimming = checkIfInWater()
 	swimState:Set("isSwimming", isSwimming)
-	
-	-- Set swimming motion
-	if isSwimming then
-		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 + Vector3.new(0, Settings["PLAYER_FLOAT_FACTOR"] * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 , 0)
+	local floatY = Settings["PLAYER_FLOAT_FACTOR"] * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 
+
+	if isSwimming then	
+		-- Account for the surface above/below the player (to prevent surface glitching)
+		if Settings["ENABLE_FLOAT_GLITCHING"] then
+			local rayOrigin     = Root.CFrame.p
+			local rayDirection  = Vector3.new(0, math.sign(Settings["PLAYER_FLOAT_FACTOR"]) * Character:GetExtentsSize().Y/1.5, 0)
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterDescendantsInstances = {Character}
+			raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+			local raycastResult      = workspace:Raycast(rayOrigin, rayDirection, raycastParams)
+
+			if raycastResult and raycastResult.Instance then
+				floatY = 0
+			end
+		end
+			-- Set swimming motion
+		swimState:Get("swimVelocity").Velocity = Humanoid.MoveDirection * Humanoid.WalkSpeed * Settings["WATER_DRAG_FORCE_MULTIPLIER"]/1 + Vector3.new(0, floatY, 0)
 	end
 end)
 
@@ -1262,8 +1276,11 @@ return State
 	SWIM_TAG = "SwimBasePart"; -- Name of the CollectionService tag for the swimmable baseparts
 	WATER_DRAG_FORCE_MULTIPLIER = 1; -- Additional force multiplier to drag/push the player when in water
 	WATER_JUMP_FORCE = .5; -- The force factor applied to the player when they attempt to jump in water 
-	PLAYER_FLOAT_FACTOR = 0 -- Anything over n>0 will make the player float up, and vice versa with n<0
+	PLAYER_FLOAT_FACTOR = 0; -- Anything over n>0 will make the player float up, and vice versa with n<0
 
+	ENABLE_FLOAT_GLITCHING = false; --[[Enabling this will require more processing power 
+		Prevents the character from attempting to float/sink through parts (resulting in a glitchy effect)
+	--]]
 }
 
 return settingsMod

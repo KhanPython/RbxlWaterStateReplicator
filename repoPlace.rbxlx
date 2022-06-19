@@ -81,27 +81,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-1.39186168</X>
-					<Y>91.8096619</Y>
-					<Z>-144.401947</Z>
-					<R00>-0.69619292</R00>
-					<R01>0.445885211</R01>
-					<R02>-0.562584996</R02>
-					<R10>-1.49011612e-08</R10>
+					<X>27.0941715</X>
+					<Y>71.3122253</Y>
+					<Z>-136.626129</Z>
+					<R00>-0.69619298</R00>
+					<R01>0.445885271</R01>
+					<R02>-0.562584937</R02>
+					<R10>-0</R10>
 					<R11>0.783703089</R11>
-					<R12>0.621135712</R12>
+					<R12>0.621135771</R12>
 					<R20>0.717854738</R20>
-					<R21>0.432430297</R21>
-					<R22>-0.545608521</R22>
+					<R21>0.432430357</R21>
+					<R22>-0.54560858</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-0.266691685</X>
-					<Y>90.5673904</Y>
-					<Z>-143.31073</Z>
+					<X>28.2193413</X>
+					<Y>70.0699539</Y>
+					<Z>-135.534912</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -874,8 +874,6 @@ local Character = Player.Character
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
 local Root = Character:FindFirstChild("HumanoidRootPart")
 
-local swimTag = Settings["SWIM_TAG"]  
-
 -- States
 local swimState = BasicState.new({
 	isSwimming = false;
@@ -887,7 +885,7 @@ local swimState = BasicState.new({
 function checkIfInWater(): boolean	
 	local list = workspace:GetPartsInPart(Root)
 	for _, touchingPart in pairs(list) do
-		if not table.find(CollectionService:GetTagged(swimTag), touchingPart) then
+		if not table.find(CollectionService:GetTagged(Settings["SWIM_TAG"]), touchingPart) then
 			continue
 		end
 		return true

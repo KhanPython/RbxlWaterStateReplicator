@@ -18,8 +18,6 @@ local Character = Player.Character
 local Humanoid = Character:FindFirstChildOfClass("Humanoid")
 local Root = Character:FindFirstChild("HumanoidRootPart")
 
-local swimTag = Settings["SWIM_TAG"]  
-
 -- States
 local swimState = BasicState.new({
 	isSwimming = false;
@@ -31,7 +29,7 @@ local swimState = BasicState.new({
 function checkIfInWater(): boolean	
 	local list = workspace:GetPartsInPart(Root)
 	for _, touchingPart in pairs(list) do
-		if not table.find(CollectionService:GetTagged(swimTag), touchingPart) then
+		if not table.find(CollectionService:GetTagged(Settings["SWIM_TAG"]), touchingPart) then
 			continue
 		end
 		return true

@@ -46,7 +46,7 @@ RunService.Heartbeat:Connect(function()
 
 	if isSwimming then	
 		-- Account for the surface above/below the player (to prevent surface glitching)
-		if Settings["ENABLE_FLOAT_GLITCHING"] then
+		if Settings["PREVENT_FLOAT_GLITCHING"] then
 			local rayOrigin     = Root.CFrame.p
 			local rayDirection  = Vector3.new(0, math.sign(Settings["PLAYER_FLOAT_FACTOR"]) * Character:GetExtentsSize().Y/1.5, 0)
 			local raycastParams = RaycastParams.new()

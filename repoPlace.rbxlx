@@ -81,27 +81,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>40.4106178</X>
-					<Y>39.7446404</Y>
-					<Z>-148.920319</Z>
-					<R00>-0.990571678</R00>
-					<R01>0.0958538353</R01>
-					<R02>-0.0978775173</R02>
+					<X>37.0712738</X>
+					<Y>43.6110954</Y>
+					<Z>-172.352112</Z>
+					<R00>-0.999311686</R00>
+					<R01>-0.0252543949</R01>
+					<R02>0.0271759164</R02>
 					<R10>-0</R10>
-					<R11>0.714454174</R11>
-					<R12>0.699682295</R12>
-					<R20>0.136996225</R20>
-					<R21>0.693085492</R21>
-					<R22>-0.707717955</R22>
+					<R11>0.732529879</R11>
+					<R12>0.680734932</R12>
+					<R20>-0.0370987207</R20>
+					<R21>0.68026638</R21>
+					<R22>-0.732025504</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>40.6063728</X>
-					<Y>38.3452759</Y>
-					<Z>-147.504883</Z>
+					<X>37.016922</X>
+					<Y>42.2496262</Y>
+					<Z>-170.888062</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -902,7 +902,7 @@ RunService.Heartbeat:Connect(function()
 
 	if isSwimming then	
 		-- Account for the surface above/below the player (to prevent surface glitching)
-		if Settings["ENABLE_FLOAT_GLITCHING"] then
+		if Settings["PREVENT_FLOAT_GLITCHING"] then
 			local rayOrigin     = Root.CFrame.p
 			local rayDirection  = Vector3.new(0, math.sign(Settings["PLAYER_FLOAT_FACTOR"]) * Character:GetExtentsSize().Y/1.5, 0)
 			local raycastParams = RaycastParams.new()
@@ -1278,7 +1278,7 @@ return State
 	WATER_JUMP_FORCE = .5; -- The force factor applied to the player when they attempt to jump in water 
 	PLAYER_FLOAT_FACTOR = 0; -- Anything over n>0 will make the player float up, and vice versa with n<0
 
-	ENABLE_FLOAT_GLITCHING = false; --[[Enabling this will require more processing power 
+	PREVENT_FLOAT_GLITCHING = false; --[[Enabling this will require more processing power 
 		Prevents the character from attempting to float/sink through parts (resulting in a glitchy effect)
 	--]]
 }
